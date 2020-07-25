@@ -3,11 +3,11 @@
   var w, h;
 
   let options = {
-    title: "Luke's Theme (v1)",
+    title: "Luke's Theme (Indev)",
     news: "// News"
   };
 
-  function init() {
+  function init() { 
     ap37.setTextSize(11);
 
     w = ap37.getScreenWidth();
