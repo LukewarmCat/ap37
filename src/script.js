@@ -31,8 +31,7 @@
     pattern: '',
     printPattern: function (x0, xf, y) {
       print(x0, y,
-        background.pattern.substring(y * w + x0, y * w + xf),
-        '#333333');
+        background.pattern.substring(y * w + x0, y * w + xf), '#333333');
     },
     init: function () {
       background.pattern = rightPad(script, h * w, ' ');
@@ -49,10 +48,11 @@
   var info = {
     lastLength: 0,
     update: function () {
-      var d = ap37.getDate();
-      var str = `${ap37.getBatteryLevel()}% / ${d.hour}:${d.minute}`
+      // var d = ap37.getDate(); Skips "0" on "08" minute. Not a fan of it.
+      var d = new Date();
+      var str = `${ap37.getBatteryLevel()}% / ${d.toTimeString().split(' ')[0].substr(0, 5)}`
       print(w - (str.length+1), 0, " ".repeat(str.length+1))
-      print(w - str.length, 0, str)
+      print(w - str.length, 0, str, "rainbow")
     },
     init: function () {
       info.update();
@@ -91,12 +91,11 @@
       }
     },
     printApp: function (app, highlight) {
-     print(app.x0, app.y, app.name.substr(0, apps.appWidth - 1), "")
+     print(app.x0, app.y, app.name.substr(0, apps.appWidth - 1), "#999999")
     },
     init: function () {
       apps.list = ap37.getApps();
-      apps.lines = Math.floor(
-        (h - apps.topMargin - apps.bottomMargin) / apps.lineHeight);
+      apps.lines = Math.floor((h - apps.topMargin - apps.bottomMargin) / apps.lineHeight);
       apps.appsPerLine = Math.ceil(apps.list.length / apps.lines);
       apps.appWidth = Math.floor(w / apps.appsPerLine);
 
@@ -104,8 +103,8 @@
         apps.appWidth = 6;
         apps.appsPerLine = Math.floor(w / apps.appWidth);
         apps.isNextPageButtonVisible = true;
-        print(w - 4, h - 11, '>>>');
-        print(w - 4, h - 10, '>>>');
+        print(w - 4, h - 11, '>>>', "#999999");
+        print(w - 4, h - 10, '>>>', "#999999");
       } else {
         apps.isNextPageButtonVisible = false;
         background.printPattern(w - 4, w, h - 9);
@@ -170,7 +169,7 @@
     },
     printTransmission: function (transmission, highlight) {
       print(0, transmission.y, transmission.title,
-        highlight ? 'rainbow' : '#ffffff');
+        highlight ? 'rainbow' : '#999999');
       if (highlight) {
         setTimeout(function () {
           transmissions.printTransmission(transmission, false);
