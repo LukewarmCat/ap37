@@ -149,7 +149,7 @@
             line = h - 7,
             t = transmissions;
           t.list = [];
-          for (var i = 0; i < result.length && i < 5; i++) {
+          for (var i = 0; i < result.length && i < 7; i++) {
             fetch('https://hacker-news.firebaseio.com/v0/item/' + result[i] + '.json').then(async (m) => {
               var itemResult = await m.json();
               var transmission = {
