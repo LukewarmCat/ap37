@@ -1,11 +1,18 @@
-# ap37 theme by luke.
 
+## Rainbow37
+<b>This branch is CONSTANTLY being updated. Please use it if you know what you're doing.</b>
+I'm not responsible for any issues caused.
+<hr>
 
-this theme is in heavy development.<br>
-i am not responsible for any issues caused by the loader or the script itself<br><br>
-tutorial:<br>
-copy everything from loader/loader.js into ap37 (delete everything) and enjoy :O!!!<br><br><br>
+### Tutorial:
+1. Open loader/loader.js<br>
+2. Copy everything from loader.js<br>
+3. Open up ap37<br>
+4. Hold down the background<br>
+5. Paste everything in!<br>
 
-ap37 by the very cool [apseren](https://github.com/apseren/)!<br><br>
+### Screenshots:
+![totally a screenshot](https://lukewarmcat.codes/rainbow37/cat.jpg)
+### Credits:
 
-the very cool rainbows and changes are by meh
+ap37 - [apseren](https://github.com/apseren/)

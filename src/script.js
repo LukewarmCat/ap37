@@ -3,11 +3,12 @@
   var w, h;
 
   let options = {
-    title: "Luke's Theme (Indev)",
+    version: "Indev",
+    title: `Rainbow37`,
     news: "// News"
   };
-
-  function init() { 
+  options.title += ` (v${options.version})`
+  function init() {
     ap37.setTextSize(11);
 
     w = ap37.getScreenWidth();
@@ -15,15 +16,21 @@
     background.init();
     info.init();
     apps.init();
+    quickmenu.init();
     transmissions.init();
-
-    print(1,0, options.title, "rainbow")
 
     ap37.setOnTouchListener(function (x, y) {
       apps.onTouch(x, y);
       transmissions.onTouch(x, y);
     });
   }
+
+  var quickmenu = {
+    apps: [],
+    init: function () {
+      // placeholder
+    }
+  };
 
   var background = {
     buffer: [],
@@ -48,11 +55,12 @@
   var info = {
     lastLength: 0,
     update: function () {
-      // var d = ap37.getDate(); Skips "0" on "08" minute. Not a fan of it.
       var d = new Date();
       var str = `${ap37.getBatteryLevel()}% / ${d.toTimeString().split(' ')[0].substr(0, 5)}`
       print(w - (str.length+1), 0, " ".repeat(str.length+1))
       print(w - str.length, 0, str, "rainbow")
+
+      print(1,0, options.title, "rainbow")
     },
     init: function () {
       info.update();
@@ -146,10 +154,10 @@
       fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then(async (r) => {
         try {
           var result = await r.json(),
-            line = h - 7,
+            line = h - 4,
             t = transmissions;
           t.list = [];
-          for (var i = 0; i < result.length && i < 7; i++) {
+          for (var i = 0; i < result.length && i < 4; i++) {
             fetch('https://hacker-news.firebaseio.com/v0/item/' + result[i] + '.json').then(async (m) => {
               var itemResult = await m.json();
               var transmission = {
@@ -177,8 +185,7 @@
       }
     },
     init: function () {
-
-      print(0, h - 8, options.news, "rainbow")
+      print(0, h - 5, options.news, "rainbow")
       transmissions.update();
       setInterval(transmissions.update, 3600000);
     },
