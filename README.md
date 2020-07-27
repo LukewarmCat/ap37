@@ -1,8 +1,14 @@
 
 ## Rainbow37
-<b>This branch is CONSTANTLY being updated. Please use it if you know what you're doing.</b>
-I'm not responsible for any issues caused.
+<b>This branch is CONSTANTLY being updated. Please use it if you know what you're doing.<br>
+I'm not responsible for any issues caused.</b>
 <hr>
+
+<p align="center">
+  <img src="https://lukewarmcat.codes/rainbow37/logo.png" align="center"></img>
+</p>
+
+<br>
 
 ### Tutorial:
 1. Open loader/loader.js<br>
