@@ -26,9 +26,19 @@
   }
 
   var quickmenu = {
-    apps: [],
+    apps: ["Firefox", "Youtube", "Play Store"],
     init: function () {
-      // placeholder
+      let string = "Quickmenu - ";
+      let tname = "";
+      quickmenu.apps.forEach((app) => {
+         tname = app.match(/(.{1,5})/g)[0];
+        string += tname + " "
+      })
+
+      print(0, h-8, string)
+
+      // this is in a massive testing phase. please do not take this code
+      // as final code. it's all unclean and in development.
     }
   };
 
