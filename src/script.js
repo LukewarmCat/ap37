@@ -3,7 +3,7 @@
   var w, h;
 
   let options = {
-    version: "Indev",
+    version: "2 / vIndev",
     title: `Rainbow37`,
     news: "// News"
   };
@@ -22,23 +22,53 @@
     ap37.setOnTouchListener(function (x, y) {
       apps.onTouch(x, y);
       transmissions.onTouch(x, y);
+      quickmenu.onTouch(x, y);
     });
   }
-
+// to make quickmenu work change both orgTitle and title thanks
   var quickmenu = {
-    apps: ["Firefox", "Youtube", "Play Store"],
+    apps: ["Firefox", "YouTube", "Play Store"],
+    title: "Quickmenu - ",
+    orgTitle: "Quickmenu - ",
     init: function () {
-      let string = "Quickmenu - ";
-      let tname = "";
       quickmenu.apps.forEach((app) => {
-         tname = app.match(/(.{1,5})/g)[0];
-        string += tname + " "
-      })
+  			if(app == apps[apps.length-1])
+     			return quickmenu.title += app.substr(0,5);
 
-      print(0, h-8, string)
+          quickmenu.title += app.substr(0,5) + " | ";
+        })
+
+      print(0, h-8, quickmenu.title, "#999999")
 
       // this is in a massive testing phase. please do not take this code
       // as final code. it's all unclean and in development.
+    },
+    onTouch: function (x, y) {
+      if(y == h-8) {
+         // on line (should be ok)
+         // find out first app
+         let uz = quickmenu.apps[0].substr(0,5).length
+
+         let onestart = quickmenu.orgTitle.length
+         let oneend = onestart + uz
+         print(0,h-6, "start: " + onestart + " end: " + oneend, "rainbow")
+         print(0,h-7, "findAppIdByName: " + findAppIdByName(quickmenu.apps[0]), "rainbow")
+         if (x <= oneend && x >= onestart) {
+           ap37.openApp(findAppIdByName(quickmenu.apps[0]))
+         }
+      }
+      // this is in a massive testing phase. please do not take this code
+      // as final code. it's all unclean and in development
+      // pastebin for  this https://pastebin.com/9L3Awsir
+
+      // the next f**kin day:
+
+      // after painfull hours of fixing this bulls**t i think i made it work
+      // https://i.imgur.com/lGo9KSp.png should show how the thing's work
+
+      // the next next day:
+
+      // can't seem to get findAppIdByName to work.
     }
   };
 
@@ -239,6 +269,20 @@
     str = str.toString();
     return newLength > str.length ?
       str + new Array(newLength - str.length + 1).join(char) : str;
+  }
+
+  function findAppIdByName(name) {
+   let allApps = ap37.getApps();
+   let filtered = allApps.filter((a) => {return a.name == name;});
+   if(filtered.length !== 0) {
+    return filtered[0].id;
+   } else {
+     for(var i = 0; allApps.length < i; i++) {
+       if(allApps[i].name == "oof") {
+         return "app name oof found. ID:" + allApps[i].id;
+       }
+     }
+  };
   }
 
   init();
