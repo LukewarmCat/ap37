@@ -1,5 +1,3 @@
-
-## Rainbow37
 <b>This branch is CONSTANTLY being updated. Please use it if you know what you're doing.<br>
 I'm not responsible for any issues caused.</b>
 <hr>
@@ -11,14 +9,18 @@ I'm not responsible for any issues caused.</b>
 <br>
 
 ### Tutorial:
-1. Open loader/loader.js<br>
-2. Copy everything from loader.js<br>
-3. Open up ap37<br>
-4. Hold down the background<br>
-5. Paste everything in!<br>
+1. Clone this project<br>
+2. Edit the quickmenu apps.<br>
+3. Open loader/loader.js<br>
+4. Change the link in the loader to your own .script file<br>
+5. Open up ap37<br>
+6. Hold down the background<br>
+7. Paste everything in!<br>
+You can use the theme without cloning it, but the quickmenu apps will be wrong.<br>
 
 ### Screenshots:
-![totally a screenshot](https://lukewarmcat.codes/rainbow37/cat.jpg)
+The app names have been censored.<br>
+![screenshot](https://lukewarmcat.codes/rainbow37/screenshot.jpeg)<br>
 ### Credits:
 
 ap37 - [apseren](https://github.com/apseren/)

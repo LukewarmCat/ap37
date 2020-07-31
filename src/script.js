@@ -3,10 +3,11 @@
   var w, h;
 
   let options = {
-    version: "2 / vIndev",
+    version: "Indev",
     title: `Rainbow37`,
     news: "// News"
   };
+
   options.title += ` (v${options.version})`
   function init() {
     ap37.setTextSize(11);
