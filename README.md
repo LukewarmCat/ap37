@@ -1,11 +1,23 @@
-# ap37 theme by luke.
 
+<p align="center">
+  <img src="https://lukewarmcat.codes/rainbow37/logo.png" align="center"></img>
+</p>
 
-this theme is in heavy development.<br>
-i am not responsible for any issues caused by the loader or the script itself<br><br>
-tutorial:<br>
-copy everything from loader/loader.js into ap37 (delete everything) and enjoy :O!!!<br><br><br>
+<br>
 
-ap37 by the very cool [apseren](https://github.com/apseren/)!<br><br>
+### Tutorial:
+1. Clone this project<br>
+2. Edit the quickmenu apps.<br>
+3. Open loader/loader.js<br>
+4. Change the link in the loader to your own .script file<br>
+5. Open up ap37<br>
+6. Hold down the background<br>
+7. Paste everything in!<br>
+You can use the theme without cloning it, but the quickmenu apps will be wrong.<br>
 
-the very cool rainbows and changes are by meh
+### Screenshots:
+The app names have been censored.<br>
+![screenshot](https://lukewarmcat.codes/rainbow37/screenshot.jpeg)<br>
+### Credits:
+
+ap37 - [apseren](https://github.com/apseren/)
