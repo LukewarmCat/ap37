@@ -27,25 +27,24 @@
   }
 
   var quickmenu = {
-    apps: [["Firefox", 62], ["YouTube", 0], ["Play Store", 0]],
+    apps: [["Firefox", 62], ["YouTube", 226], ["Play Store", 145]],
     title: "Quickmenu - ",
     init: function () {
       let title = quickmenu.title;
 
-      for(var i = 0; i < apps.length; i++) {
-  			 if(i == apps.length)
-          return title += truncateApps(i);
+      for(var i = 0; quickmenu.apps.length > i; i++) {
+         title += truncateApps(i) + " | "
+      }
 
-          title += truncateApps(i) + " | ";
-        }
+      title = title.slice(0, -3);
 
       print(0, h-8, title, "#999999")
     },
     onTouch: function (x, y) {
       if(y == h-8) {
-         let one = quickmenu.title.length + truncateApps(0)
-         let two = one + 3 + truncateApps(1)
-         let three = two + 3 + truncateApps(2)
+         let one = quickmenu.title.length + truncateApps(0).length
+         let two = one + 3 + truncateApps(1).length
+         let three = two + 3 + truncateApps(2).length
 
          if (x <= one && x >= quickmenu.title.length)
           return ap37.openApp(quickmenu.apps[0][1]);
@@ -132,6 +131,9 @@
       apps.appsPerLine = Math.ceil(apps.list.length / apps.lines);
       apps.appWidth = Math.floor(w / apps.appsPerLine);
 
+      print(0,h-7, " ".repeat(w))
+      print(0,h-7, `Last opened app: Nothing!`, "#999999")
+
       if (apps.appWidth < 6) {
         apps.appWidth = 6;
         apps.appsPerLine = Math.floor(w / apps.appWidth);
@@ -158,7 +160,10 @@
           x >= app.x0 && x <= app.xf) {
           apps.printApp(app, true);
           ap37.openApp(app.id);
-          print()
+
+          print(0,h-7, " ".repeat(w))
+          print(0,h-7, `Last opened app: ${app.name} (${app.id})`, "#999999")
+
           return;
         }
       }
@@ -258,7 +263,7 @@
   }
 
   function truncateApps(num) {
-    return quickmenu.apps[num][0].substr(0,7).length;
+    return quickmenu.apps[num][0].substr(0,7);
   }
 
   init();
