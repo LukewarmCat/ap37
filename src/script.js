@@ -48,11 +48,11 @@
          let three = two + 3 + truncateApps(2).length
 
          if (x <= one && x >= quickmenu.title.length)
-          return ap37.openApp(findAppIdByName(quickmenu.apps[0]).id);
+          return ap37.openApp(findAppIdByName(quickmenu.apps[0]));
          if (x <= two && x >= one + 3)
-          return ap37.openApp(findAppIdByName(quickmenu.apps[1]).id);
+          return ap37.openApp(findAppIdByName(quickmenu.apps[1]));
          if (x <= three && x >= two + 3)
-          return ap37.openApp(findAppIdByName(quickmenu.apps[2]).id);
+          return ap37.openApp(findAppIdByName(quickmenu.apps[2]));
       }
     }
   };
@@ -132,9 +132,6 @@
       apps.appsPerLine = Math.ceil(apps.list.length / apps.lines);
       apps.appWidth = Math.floor(w / apps.appsPerLine);
 
-      print(0,h-7, " ".repeat(w))
-      print(0,h-7, `Last opened app: Nothing!`, "#999999")
-
       if (apps.appWidth < 6) {
         apps.appWidth = 6;
         apps.appsPerLine = Math.floor(w / apps.appWidth);
@@ -161,10 +158,6 @@
           x >= app.x0 && x <= app.xf) {
           apps.printApp(app, true);
           ap37.openApp(app.id);
-
-          print(0,h-7, " ".repeat(w))
-          print(0,h-7, `Last opened app: ${app.name} (${app.id})`, "#999999")
-
           return;
         }
       }
@@ -175,7 +168,11 @@
         if (apps.currentPage * apps.appsPerPage >= apps.list.length) {
           apps.currentPage = 0;
         }
-        apps.printPage(apps.currentPage);
+
+        // a fix for some ugly apps on page spam
+        setTimeout(()=>{
+          apps.printPage(apps.currentPage);
+        }, 100)
       }
     }
   };
@@ -272,7 +269,7 @@
     var apps = ap37.getApps();
     for(var i = 0; i < apps.length; i++) {
       if(apps[i].name === name) {
-        return apps[i];
+        return apps[i].id;
       }
     }
   }
