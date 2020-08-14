@@ -28,7 +28,7 @@
   }
 
   var quickmenu = {
-    apps: [["Firefox", 62], ["YouTube", 226], ["Play Store", 145]],
+    apps: ["Firefox Nightly", "Play Store", "YouTube"],
     title: "Quickmenu - ",
     init: function () {
       let title = quickmenu.title;
@@ -48,11 +48,11 @@
          let three = two + 3 + truncateApps(2).length
 
          if (x <= one && x >= quickmenu.title.length)
-          return ap37.openApp(quickmenu.apps[0][1]);
+          return ap37.openApp(findAppIdByName(quickmenu.apps[0]).id);
          if (x <= two && x >= one + 3)
-          return ap37.openApp(quickmenu.apps[1][1]);
+          return ap37.openApp(findAppIdByName(quickmenu.apps[1]).id);
          if (x <= three && x >= two + 3)
-          return ap37.openApp(quickmenu.apps[2][1]);
+          return ap37.openApp(findAppIdByName(quickmenu.apps[2]).id);
       }
     }
   };
@@ -264,7 +264,17 @@
   }
 
   function truncateApps(num) {
-    return quickmenu.apps[num][0].substr(0,7);
+    return quickmenu.apps[num].substr(0,7);
+  }
+
+  // code made by apsersen! thank you!!!
+  function findAppIdByName(name) {
+    var apps = ap37.getApps();
+    for(var i = 0; i < apps.length; i++) {
+      if(apps[i].name === name) {
+        return apps[i];
+      }
+    }
   }
 
   init();
