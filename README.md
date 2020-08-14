@@ -10,7 +10,7 @@ I'm not responsible for any issues caused.</b>
 
 ### Tutorial:
 1. Clone this project<br>
-2. Edit the quickmenu apps.<br>
+2. Edit the quickmenu apps. (The names have to be exact!)<br>
 3. Open loader/loader.js<br>
 4. Change the link in the loader to your own .script file<br>
 5. Open up ap37<br>
