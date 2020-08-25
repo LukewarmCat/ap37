@@ -1,0 +1,21 @@
+{
+  "name": "rainbow37",
+  "version": "1.0.0",
+  "description": "Rainbow37 - The AP37 Theme",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukewarmcat/ap37.git"
+  },
+  "author": "lukewarmcat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukewarmcat/ap37/issues"
+  },
+  "homepage": "https://github.com/lukewarmcat/ap37#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0"
+  }
+}
